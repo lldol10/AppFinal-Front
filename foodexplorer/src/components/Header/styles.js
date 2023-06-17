@@ -13,6 +13,7 @@ export const Container = styled.header`
         width: 29rem;
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 1.2rem;
     }
 
@@ -22,7 +23,7 @@ export const Container = styled.header`
         height: 3rem;
         
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
         margin: 3rem 4rem 0;
 
         img{
@@ -31,22 +32,8 @@ export const Container = styled.header`
         
     }
 
-    .popup-menu{
-        display: flex;
-
-        height: 3rem;
-        gap: 1.6rem;
-        align-items: center;
-        justify-content: space-between;
-        margin: 3rem 4rem 0;
-
-        img{
-            cursor: pointer;
-        }
-    }
 
     .nav-elements-desktop{
-        background-color: red;
         width: 100%;
         display: flex;
         height: 5rem;
@@ -70,20 +57,18 @@ export const Container = styled.header`
 
 
         /*MEDIA QUERIES */
-        @media (max-width: 1024px) {
+        @media (min-width: 1024px) {
   
-           .nav-elements-desktop{
+           .header-mobile{
             display: none;
             
            }
 
-           @media (min-width: 1024px) {
-  
-        .header-mobile{
-         display: block;
-         }
-
-
+           .nav-elements-desktop{
+            display: flex;
+            
+            }
     }
+
     
 `
