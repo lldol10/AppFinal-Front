@@ -2,10 +2,10 @@ import styled from 'styled-components'
 export const Container = styled.header`
     grid-area: header;
     height: 11rem ;
-    width: 100%;
+    width: 100vw;
     border-bottom-width:1px;
     border-bottom-style: solid;
-    
+    background-color: #001119;
     display: flex;
     
     .logo{
@@ -18,16 +18,34 @@ export const Container = styled.header`
     }
 
     .header-mobile{
-        width: 100%;
+        width: 90%;
         display: flex;
         height: 3rem;
-        
         align-items: center;
         justify-content: space-around;
         margin: 3rem 4rem 0;
 
         img{
             cursor: pointer;
+            
+        }
+
+        .pedido{
+            
+            position: relative;
+            
+             p{
+                position: absolute;
+                top: -10px;
+                right: -5px;
+                color: white;
+                font-size: 1rem;
+               padding: 5px;
+                background-color: red;
+                text-align: center;
+                
+                border-radius: 50%;
+            }
         }
         
     }

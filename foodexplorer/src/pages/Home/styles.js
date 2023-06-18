@@ -16,6 +16,11 @@ export const Container = styled.div`
     "content"
     ;
 
+    .carrossel{
+        display: flex;
+        overflow-x: auto;
+    }
+
 
     /*MEDIA QUERIES */
 

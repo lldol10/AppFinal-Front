@@ -1,8 +1,8 @@
 export default {
     COLORS: {
       BACKGROUND_BTN_RED: "#750310",
-      BACKGROUND: "#1E1E1E",
-      BACKGROUND_INPUT: "#0D1D25",
+      BACKGROUND: "#0B1717",
+      BACKGROUND_INPUT: "##041014",
   
       WHITE: "#F4EDE8",
       ORANGE: "#FF9000",

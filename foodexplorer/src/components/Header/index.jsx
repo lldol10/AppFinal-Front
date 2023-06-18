@@ -17,18 +17,15 @@ export function Header(){
                           <img src={Menu} alt="" />
                     </div>
                     
-
                     <div className="logo">
                         <img src={Logo} alt="" />
                         <h2>food explorer</h2>
                     </div>
 
-
-
-                    <div>
-                        <img src={Pedidos} alt="" />
+                    <div className='pedido'>
+                        <img src={Pedidos} alt="" />    
+                            <p>3</p>    
                     </div>
-
                 </div>
             
             <div className="nav-elements-desktop some">
@@ -45,19 +42,12 @@ export function Header(){
                         <img src={Logoff} alt="" />
                     </div>
             </div>
-
-                {/* <div className='showMenu some'>
-                    <div className='popup-menu'>
-                          <img src={Close} alt="" onClick={(e) => FechaMenu()} />
-                          <h2>Menu</h2>
-                    </div>
-                </div> */}
         
         </Container>
     )
 
     function abreMenu(event){
-
+        alert('será implementado o menu, em breve.')
       
         
     }

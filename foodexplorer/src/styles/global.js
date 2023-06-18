@@ -16,6 +16,7 @@ body {
     background-color: ${(props) => props.theme.COLORS.BACKGROUND};
     color: ${(props) => props.theme.COLORS.WHITE};
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
     }
 
 label, input, :placeholder{
