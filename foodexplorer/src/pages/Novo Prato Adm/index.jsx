@@ -44,7 +44,7 @@ export function NovoPrato(){
                         <p>Ingredientes</p>
                         <div className="ingredientes">
                             <Ingrediente title='hoje tem em'  />
-                            <Ingrediente title='LUAN' isNew />
+                            <Ingrediente title='LUAN'/>
                             <Ingrediente title='avera' isNew  />
                         </div>
                      </div>

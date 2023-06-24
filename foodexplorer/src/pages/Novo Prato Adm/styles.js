@@ -19,9 +19,13 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
     select{
-        background-color:  #0d161b;
+        background-color: ${({theme}) => theme.COLORS.BACKGROUND_INPUT};
         border: none;
-        height: 3rem;
+        height: 4.8rem;
+        padding: 1rem;
+        color: ${({theme}) => theme.COLORS.GRAY_300 };
+        font-size: 1.7rem;
+        outline: none;
     }
 }
 
@@ -38,7 +42,7 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
     >input{
-        background-color:  #0d161b;
+        background-color:  ${({theme}) => theme.COLORS.BACKGROUND_INPUT};
         border: none;
         height: 1.8rem;
         border-radius: 4px;
@@ -61,9 +65,8 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
     .ingredientes{
-        
+        background-color:  ${({theme}) => theme.COLORS.BACKGROUND_INPUT};
         min-height: 4rem;
-        background-color: blue;
         display: flex;
     
         span{
@@ -85,6 +88,13 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
                 overflow-x: hidden;
             }
 
+}
+
+@media (max-width: 564px) {
+  
+  .ingredientes{
+      flex-wrap: wrap;
+  }
 }
 
 `

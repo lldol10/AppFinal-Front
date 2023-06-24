@@ -30,7 +30,7 @@ button{
 
 .agrupar{
     background-color: ${(props) => props.isNew ? 'transparent' : '#918e8c'};
-    border: ${(props) => props.isNew ? '2px dashed red' : 'none'};
+    border: ${(props) => props.isNew ? '2px dashed white' : 'none'};
     color: white;
     display: flex;
     gap: 1.2rem;
@@ -41,5 +41,12 @@ button{
 
 
 
+        /*MEDIA QUERIES */
+        @media (max-width: 564px) {
+  
+            .agrupar{
+                flex-wrap: wrap;
+            }
+}
 
 `
