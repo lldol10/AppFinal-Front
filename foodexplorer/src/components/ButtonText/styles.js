@@ -5,6 +5,9 @@ export const Container = styled.button`
     color: ${({theme}) => theme.COLORS.GRAY_100};
 
     border: none;
-    font-size: 1.4rem;
     
+    font-size: 1.4rem;
+
 `
+
+

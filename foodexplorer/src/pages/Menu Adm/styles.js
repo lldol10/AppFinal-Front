@@ -27,9 +27,13 @@ export const Container = styled.div`
         gap: 3rem;
         align-items: start;
         margin: 3.6rem 2rem 0 2rem;
+        
+        width: 60%;
 
         button{
+            margin-bottom: 1rem;
             font-size: 2rem;
+            
         }
     }
 `

@@ -14,6 +14,10 @@ margin: 0 auto;
     margin: 0 auto;
     padding: 2rem 0;
 
+    button:nth-child(3){
+        margin-top: 2rem;
+    }
+
    .dish{
     display: flex;
     flex-direction: column;
@@ -22,20 +26,15 @@ margin: 0 auto;
 
     button{
         align-self: flex-start;
-    }
-   }
-
-    button:nth-child(1){
         font-size: 2.4rem;
         font-family: 'Poppins';
-        font-size: 2.4rem;
         font-weight: 500;
     }
-}
 
-> button:nth-child(1){
-    font-size: 2rem;
-    padding: 2rem 0;
+   }
+
+
+  
 }
 
 .dish-info{
@@ -66,20 +65,6 @@ margin: 0 auto;
     flex-wrap: wrap;
 }
 
-.pedir{
-    display: flex;
-    padding: 2rem;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-}
-
-.quantidade{
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    font-size: 2.2rem;
-}
 
 
 
@@ -114,14 +99,12 @@ margin: 0 auto;
                 text-align: left;
                 margin: 0;
                 padding: 0;
-                
-        
-                
+                      
             }
 
             .tags{
              
-                align-items: left;
+              align-items: left;
                 
               margin-top: 2rem;
               padding: 0;
@@ -136,6 +119,7 @@ margin: 0 auto;
             .pedir{
                 width: 22rem;
                 padding: 0;
+                margin-top: 2rem;
                 > button{
                     padding:0;
                 }

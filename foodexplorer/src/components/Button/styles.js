@@ -14,6 +14,7 @@ export const Container = styled.button`
     border-radius: 4px;
 
     font-weight: 600;
+   
 
     &:disabled{
         opacity:0.5;

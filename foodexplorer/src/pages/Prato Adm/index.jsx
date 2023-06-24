@@ -1,16 +1,15 @@
 import { Container } from "./styles";
-import {FiPlus, FiMinus} from 'react-icons/fi'
-import {Header} from './../../components/Header'
+import {HeaderAdm} from './../../components/Header Adm'
 import {Button} from './../../components/Button'
 import {Tag} from './../../components/Tag'
 import {Rodape} from './../../components/Rodape'
 import {ButtonText} from './../../components/ButtonText'
 import SaladaRavanello from './../../assets/image 2.png'
 
-export function Prato(){
+export function PratoAdm(){
     return(
         <>
-                <Header/>
+                <HeaderAdm/>
 
                 <Container>
                     <div className="content">
@@ -20,6 +19,7 @@ export function Prato(){
                         </div>
 
                         <div className="second-coll">
+                            
                             <div className="dish-info">
                               <h2>Salada Ravanello</h2>
                               <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</p>
@@ -33,17 +33,8 @@ export function Prato(){
                             <Tag title="Alface"/>
                         </div>
 
-                        <div className="pedir">
-                            <div className="quantidade">
-                                <FiMinus />
-                                    <h3>01</h3>
-                                <FiPlus/>
-                            </div>
-                            <Button title="Pedir">
+                            <Button title="Editar o Prato"/>
                                 
-                            </Button>
-                        </div>
-                        
                         </div>
                     
                     </div>
