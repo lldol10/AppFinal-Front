@@ -4,7 +4,7 @@ export const Container = styled.div`
 
 height: 100vh;
 width: 100vw;
-background-color: #1E1E1E;
+background-color: #000a0f;
 filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
 
@@ -19,22 +19,26 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
     select{
-        background-color: transparent;
+        background-color:  #0d161b;
         border: none;
+        height: 3rem;
     }
 }
 
 .input-area{
-    background-color: red;
+ 
     display: flex;
     gap: 1rem;
     flex-direction: column;
     
     margin-bottom: 3rem;
 
-    >input{
+    > p, label{
+        font-size: 1.6rem;
+    }
 
-        background-color: green;
+    >input{
+        background-color:  #0d161b;
         border: none;
         height: 1.8rem;
         border-radius: 4px;
@@ -54,6 +58,17 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
             display: none;
         }
 
+    }
+
+    .ingredientes{
+        
+        min-height: 4rem;
+        background-color: blue;
+        display: flex;
+    
+        span{
+        font-size: 1.4rem;
+    }
     }
 }
 
