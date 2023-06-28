@@ -1,6 +1,7 @@
 import { Container } from "./styles";
 import {FiDownload} from 'react-icons/fi'
 import {HeaderAdm} from './../../components/Header Adm'
+import { Button } from "../../components/Button";
 import {Rodape} from './../../components/Rodape'
 import {ButtonText} from './../../components/ButtonText'
 import { Input } from "../../components/Input";
@@ -48,9 +49,20 @@ export function NovoPrato(){
                             <Ingrediente title='avera' isNew  />
                         </div>
                      </div>
-                                         
-                    </div>
 
+                     <div className="input-area">
+                        <label htmlFor="prato">Preço</label>
+                        <Input id="prato" type="text" placeholder="R$ 00,00"/>
+                     </div>
+
+                     <div className="input-area">
+                        <label htmlFor="prato">Descrição</label>
+                        <textarea id="prato" type="text" placeholder="Fale brevemente sobre o prato, seus ingredientes e composições"/>
+                     </div>
+                     
+                     <Button title="Salvar Alterações"/>              
+                    </div>
+                
                 <Rodape/>
                 </Container>       
         </>

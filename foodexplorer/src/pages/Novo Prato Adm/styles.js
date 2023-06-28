@@ -9,8 +9,8 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
 
 .content{
-    height: 67rem;
     width: 90%;
+
     padding: 4rem 7rem;
     margin: 0 auto;
 
@@ -41,12 +41,18 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         font-size: 1.6rem;
     }
 
-    >input{
+    >input, textarea{
         background-color:  ${({theme}) => theme.COLORS.BACKGROUND_INPUT};
         border: none;
         height: 1.8rem;
         border-radius: 4px;
         padding: 1.5rem;
+    }
+
+    textarea{
+        height: 12rem;
+        resize: none;
+        overflow: hidden;
     }
 
     .flexivel{
@@ -81,11 +87,23 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         @media (min-width: 1024px) {
             .content{
                 display: flex;
+                flex-direction: column;
                 width: 100%;
                 margin: 0 auto;
                 padding: 8rem 15rem;
-                gap: 12rem;
+                gap: 1rem;
                 overflow-x: hidden;
+
+                >button:nth-child(1){
+                    width: 7rem;
+                    font-size: 2rem;
+                }
+
+                >button:nth-child(9){
+                    width: 34%;
+                    font-size: 2rem;
+                    align-self: flex-end;
+                }
             }
 
 }
