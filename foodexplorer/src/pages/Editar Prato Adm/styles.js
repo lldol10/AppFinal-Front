@@ -29,6 +29,15 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         outline: none;
     }
 
+    .btn-padrao{
+        display: inline-flex;
+        width: 100%;
+        gap: 4rem;
+    }
+
+    .btn-padrao button:nth-child(1){
+        background-color: #0D161B;
+    }
 }
 
 .voltar{
@@ -65,9 +74,6 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
 
-
-
-
     .flexivel{
         display: flex;
         align-items: center;
@@ -91,8 +97,12 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         span{
         font-size: 1.4rem;
     }
+
     }
+
 }
+
+
 
 
 
@@ -107,16 +117,16 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
                 gap: 1rem;
                 overflow-x: hidden;
 
-                >button:nth-child(1){
-                    width: 7rem;
-                    font-size: 2rem;
+                .btn-padrao button{
+                    width: 30%;
+                }
+                .btn-padrao{
+                    width: 100%;
+                    display: flex;
+                    justify-content: end;
+                    
                 }
 
-                >button:nth-child(9){
-                    width: 34%;
-                    font-size: 2rem;
-                    align-self: flex-end;
-                }
             }
 
             .capsula .aumenta {

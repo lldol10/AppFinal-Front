@@ -4,7 +4,7 @@ import {ThemeProvider} from 'styled-components'
 import GlobalStyles from './styles/global'
 
 import theme from './styles/theme'
-import { NovoPrato } from './pages/Novo Prato Adm'
+import { Routes } from './routes'
 
 
 
@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles/>
-        <NovoPrato/>
+        <Routes/>
     </ThemeProvider>    
   </React.StrictMode>,
 )

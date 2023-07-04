@@ -17,7 +17,7 @@ margin: 0 auto;
    .dish{
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 2rem;
     align-items: center;
 
     button{
@@ -30,6 +30,12 @@ margin: 0 auto;
         font-family: 'Poppins';
         font-size: 2.4rem;
         font-weight: 500;
+    }
+
+    a{
+        color: white;
+        margin-top: 20px;
+        font-size: 2rem;
     }
 }
 

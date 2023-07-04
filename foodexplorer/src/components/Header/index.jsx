@@ -47,7 +47,7 @@ export function Header(){
     )
 
     function abreMenu(event){
-        alert('será implementado o menu, em breve.')
+       window.location.href = "/menu"
       
         
     }

@@ -4,6 +4,8 @@ import { Input } from '../../components/Input'
 import { ButtonText } from '../../components/ButtonText'
 import Logo from '../../assets/Polygon 1.svg'
 
+import {Link} from 'react-router-dom'
+
 
 
 export  function SignUp(){
@@ -49,7 +51,9 @@ export  function SignUp(){
 
             <Button title="Criar conta" />
 
-            <ButtonText title="Já tenho uma conta"/>
+            <Link to="/">
+              Já tenho uma conta
+            </Link>
         </section>
 
       </main>

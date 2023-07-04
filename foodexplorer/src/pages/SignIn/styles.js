@@ -2,14 +2,15 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     
-    height: 100vh;
+    
 
     >main{
-        
         width: 80%;
         padding: 1.6rem;
-        margin: 15rem auto;
+        margin: 5rem auto;
         text-align: center;
+        overflow-y: hidden;
+       
 
     .titulo{
     display: flex;
@@ -21,9 +22,7 @@ export const Container = styled.div`
     font-weight: 700;
     }
 
-    > div:nth-child(3){
-        margin-top: 2rem;
-    }
+
 
     .group{
         display: flex;
@@ -33,14 +32,24 @@ export const Container = styled.div`
         font-size: 1.6rem;
     }
 
+    .group:nth-child(3){
+        margin-top: 3rem;
+    }
+
     button{
-        margin-bottom: 2rem;
+        margin: 2rem 0;
     }
 
     section h1{
         display: none;
     }
    
+    }
+
+    a{
+        color: white;
+        margin-top: 20px;
+        font-size: 1.3rem;
     }
 
 
@@ -52,7 +61,6 @@ export const Container = styled.div`
             display: flex;
             gap: 30rem;
             flex-wrap: wrap;
-            border: 1px solid yellow;
             align-items: center;
             justify-content: center;
             width: 100%;
@@ -71,7 +79,6 @@ export const Container = styled.div`
                 background-color:#001119;
                 border-radius: 1.6rem;
                 padding: 6rem;
-                border: 1px solid red;
                 
                 >div:nth-child(2){
                     margin-top: 2.5rem;
@@ -87,7 +94,7 @@ export const Container = styled.div`
 
 
              .titulo{
-                border: 1px solid blue;
+        
                 img{
                     width: 4.5rem;
                 }

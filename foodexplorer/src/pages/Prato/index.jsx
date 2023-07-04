@@ -7,6 +7,8 @@ import {Rodape} from './../../components/Rodape'
 import {ButtonText} from './../../components/ButtonText'
 import SaladaRavanello from './../../assets/image 2.png'
 
+import {Link} from 'react-router-dom'
+
 export function Prato(){
     return(
         <>
@@ -14,8 +16,9 @@ export function Prato(){
 
                 <Container>
                     <div className="content">
+                        
                         <div className="dish">
-                            <ButtonText title="< voltar" />
+                        <Link to="/"> ← Voltar</Link>
                             <img src={SaladaRavanello} alt="" />
                         </div>
 

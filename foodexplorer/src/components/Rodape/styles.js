@@ -8,6 +8,7 @@ export const Container = styled.footer`
     align-items: center;
     justify-content: center;
     gap: 1.4rem;
+    background-color: #0D161B;
 
     .content{
         display: flex;

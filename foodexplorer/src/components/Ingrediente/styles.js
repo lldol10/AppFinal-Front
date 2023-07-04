@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-
-min-height: 1rem;
+height: 5rem;
 display: flex;
 align-items: center;
 padding: 8px;
@@ -35,7 +34,7 @@ button{
     display: flex;
     gap: 1.2rem;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 5px 1rem;
 }
 

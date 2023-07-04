@@ -8,7 +8,7 @@ export function Menu(){
     return(
         <Container>
             <header>
-                <button>
+                <button onClick={Gotomenu}>
                      <img src={Sair} alt="" />
                 </button>
                 
@@ -22,4 +22,8 @@ export function Menu(){
             
         </Container>
     )
+
+    function Gotomenu(){
+        window.location.href = "/"
+    }
 }

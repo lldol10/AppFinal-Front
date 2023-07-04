@@ -8,7 +8,7 @@ import { Input } from "../../components/Input";
 import { Ingrediente } from "../../components/Ingrediente";
 
 
-export function NovoPrato(){
+export function EditarPrato(){
     return(
         <>
                 <HeaderAdm/>
@@ -18,10 +18,19 @@ export function NovoPrato(){
                         
                      <ButtonText className="voltar" title="< voltar" />
                      
-                     <h1>Adicionar Prato</h1>
+                     <h1>Editar Prato</h1>
                      <div className="capsula">
-                        <div className="input-area">
-                        <label htmlFor="imagem">Imagem do Prato</label>
+                        {/* <div className="input-area">
+                           <p>Imagem do prato</p>
+                           <label className="flexivel" htmlFor="imagem">                         
+                           <FiDownload/>
+                           <input id="imagem" type="file" /> 
+                           <p>Selecione imagem</p>
+                           </label>  
+                        </div> */}
+
+                        <div className="input-area aumenta">
+                           <label htmlFor="imagem">Imagem do Prato</label>
                            <Input id="imagem" type="file"  icon={FiDownload}/>
                         </div>
 
@@ -61,8 +70,12 @@ export function NovoPrato(){
                            <textarea id="prato" type="text" placeholder="Fale brevemente sobre o prato, seus ingredientes e composições"/>
                         </div>
                     
+                        <div className="btn-padrao">
+                            <Button title="Excluir prato"/>              
+                            <Button title="Salvar Alterações"/>
+                        </div>
                      
-                     <Button title="Salvar Alterações"/>              
+                                   
                     </div>
                 
                 <Rodape/>
