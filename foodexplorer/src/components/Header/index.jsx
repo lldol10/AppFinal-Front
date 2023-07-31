@@ -7,9 +7,11 @@ import Close from '../../assets/Close.svg'
 import Pedidos from '../../assets/Receipt.svg'
 import {Input} from '../Input'
 import {Button} from '../Button'
+import {useAuth} from '../../hooks/auth'
 
 export function Header(){
-    return(
+    const {signOut} = useAuth()
+     return(
         <Container>
 
                 <div className='header-mobile' onClick={(e) => abreMenu() }>
@@ -39,7 +41,7 @@ export function Header(){
                 <Button icon={Menu} title="Pedido(0)" className="btn-pedido"/>
 
                     <div>
-                        <img src={Logoff} alt="" />
+                        <img src={Logoff} alt="" onClick={signOut}/>
                     </div>
             </div>
         

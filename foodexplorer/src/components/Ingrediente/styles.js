@@ -1,16 +1,22 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-height: 5rem;
 display: flex;
-align-items: center;
 padding: 8px;
 font-size: 1.8rem;
+background-color: red;
+
 
 
 input{
    background-color: transparent;
    border: none;
+   outline: none;
+   background-color: blue;
+   width: 82px;
+   color: white;
+   display: flex;
+   flex-wrap: wrap;
 }
 
 span, svg{

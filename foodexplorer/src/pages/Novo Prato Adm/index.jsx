@@ -1,3 +1,7 @@
+import { useState } from "react";
+
+import {api} from '../../services/api'
+import {useNavigate} from 'react-router-dom'
 import { Container } from "./styles";
 import {FiDownload} from 'react-icons/fi'
 import {HeaderAdm} from './../../components/Header Adm'
@@ -9,6 +13,46 @@ import { Ingrediente } from "../../components/Ingrediente";
 
 
 export function NovoPrato(){
+
+   const [name, setName] = useState("")
+   const [description, setDescription] = useState("")
+   const select = document.querySelector("#categoria")
+   const indice = select.selectedIndex
+   const text = select.options[indice]
+   let category
+   const [price, setPrice] = useState("")
+
+   const [tags, setTags] = useState([])
+   const [newTag, setNewTag] = useState([])
+
+   const navigate = useNavigate()
+
+   function handleAddTag(tagDeleted){
+      setTags(prevState => [...prevState, newTag])
+     setNewTag("")
+     
+   }
+
+   function handleRemoveTag(deleted){
+      setTags(prevState => prevState.filter(tag => tag !== deleted))
+     
+   }
+
+ 
+
+   async function handleNewPrato(){
+      // await api.post("/prato", {
+      //    name,
+      //    description,
+      //    category,
+      //    price,
+      //    tags
+      // })
+      
+      console.log(text)
+    //  navigate("/")
+   }
+
     return(
         <>
                 <HeaderAdm/>
@@ -27,12 +71,12 @@ export function NovoPrato(){
 
                         <div className="input-area aumenta">
                            <label htmlFor="prato">Nome</label>
-                           <Input id="prato" type="text" placeholder="Ex: Nome do prato"/>
+                           <Input id="prato" type="text" placeholder="Ex: Nome do prato" onChange={e => setName(e.target.value)}/>
                         </div>
 
                         <div className="input-area">
                            <label htmlFor="categoria">Categoria</label>
-                           <select id="categoria" type="option" > 
+                           <select id="categoria" type="option" onChange={e => setCategory(e.select.value)}> 
                               <option value="refeicao">Refeição</option>
                               <option value="sobremessa">Sobremessa</option>
                            </select>
@@ -42,27 +86,42 @@ export function NovoPrato(){
                         <div className="capsula">
                         <div className="input-area aumenta">
                            <p>Ingredientes</p>
+                           
                            <div className="ingredientes">
-                              <Ingrediente title='hoje tem em'  />
-                              <Ingrediente title='LUAN'/>
-                              <Ingrediente title='avera' isNew  />
+
+                              {
+                                 tags.map((tag, index) => (
+                                    <Ingrediente
+                                    key={String(index)}
+                                    value={tag}
+                                    onClick={() => handleRemoveTag(tag)}
+                                    />
+                                 ))
+                              }
+
+                              <Ingrediente
+                                isNew
+                                value={newTag}
+                                placeholder="Nova Tag"
+                                onChange={e => setNewTag(e.target.value)}
+                                onClick={handleAddTag}  />
                            </div>
                         </div>
 
                         <div className="input-area">
                            <label htmlFor="prato">Preço</label>
-                           <Input id="prato" type="text" placeholder="R$ 00,00"/>
+                           <Input id="prato" type="text" placeholder="R$ 00,00" onChange={e => setPrice(e.target.value)}/>
                         </div>
                         </div>
 
 
                         <div className="input-area">
                            <label htmlFor="prato">Descrição</label>
-                           <textarea id="prato" type="text" placeholder="Fale brevemente sobre o prato, seus ingredientes e composições"/>
+                           <textarea id="prato" type="text" nChange={e => setDescription(e.target.value)} placeholder="Fale brevemente sobre o prato, seus ingredientes e composições"/>
                         </div>
                     
                      
-                     <Button title="Salvar Alterações"/>              
+                     <Button title="Salvar Alterações" onClick={handleNewPrato}/>              
                     </div>
                 
                 <Rodape/>

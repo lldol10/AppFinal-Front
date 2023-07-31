@@ -8,7 +8,9 @@ import { Input } from "../../components/Input";
 import { Ingrediente } from "../../components/Ingrediente";
 
 
+
 export function EditarPrato(){
+   
     return(
         <>
                 <HeaderAdm/>

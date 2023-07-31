@@ -7,8 +7,10 @@ import Close from '../../assets/Close.svg'
 import Pedidos from '../../assets/Receipt.svg'
 import {Input} from '../Input'
 import {Button} from '../Button'
+import { useAuth } from '../../hooks/auth'
 
 export function HeaderAdm(){
+    const {signOut} = useAuth()
     return(
         <Container>
 
@@ -37,8 +39,8 @@ export function HeaderAdm(){
                     </div>
 
                 <Input icon={FiSearch} placeholder="Busque por pratos ou ingredientes"/>
-                <Button icon={Menu} title="Novo Prato" className="btn-pedido"/>
-                <img src={Logoff} alt="" />
+                <Button icon={Menu} title="Novo Prato" className="btn-pedido" />
+                <img src={Logoff} alt=""  onClick={signOut}/>
 
  
             </div>
@@ -47,10 +49,10 @@ export function HeaderAdm(){
     )
 
     function abreMenu(event){
-        alert('será implementado o menu, em breve.')
-      
-        
+       window.location.href = '/menuadm'    
     }
+
+
 
     function FechaMenu(event){
 

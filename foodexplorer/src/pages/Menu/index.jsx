@@ -3,8 +3,10 @@ import {FiSearch} from 'react-icons/fi'
 import { Input } from '../../components/Input'
 import { ButtonText } from '../../components/ButtonText'
 import {Container} from './styles'
+import {useAuth} from '../../hooks/auth'
 
 export function Menu(){
+    const {signOut} = useAuth()
     return(
         <Container>
             <header>
@@ -17,7 +19,7 @@ export function Menu(){
             
             <div>
                 <Input icon={FiSearch} placeholder="Busque por pratos ou ingredientes"/>
-                <ButtonText title="Sair"/>
+                <ButtonText title="Sair" onClick={signOut}/>
             </div>
             
         </Container>

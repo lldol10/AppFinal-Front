@@ -3,14 +3,13 @@ import {FiX, FiPlus} from 'react-icons/fi'
 
 import { Container} from "./styles";
 
-export function Ingrediente({isNew, title,onClick, ...rest}){
+export function Ingrediente({isNew,value, title, onClick, ...rest}){
     return(
         <Container isNew ={isNew} >
 
             <div className='agrupar'>
-            <span>
-                {isNew ? 'Adicionar': title}
-            </span>
+                <input type="text" value={value}  readOnly={!isNew} placeholder={isNew ? 'Adicionar': title} {...rest} />
+           
 
             <button
             type='button'
