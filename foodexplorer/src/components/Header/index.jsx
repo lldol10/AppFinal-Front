@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import {FiSearch} from 'react-icons/fi'
 import { Container } from "./styles";
 import Menu from '../../assets/Menu.svg'
@@ -8,9 +9,20 @@ import Pedidos from '../../assets/Receipt.svg'
 import {Input} from '../Input'
 import {Button} from '../Button'
 import {useAuth} from '../../hooks/auth'
+import { api } from '../../services/api';
 
 export function Header(){
+const [search, setSearch] = useState("")
+const [pratos, setPratos] = useState([])
     const {signOut} = useAuth()
+
+    useEffect(() => {
+        async function fetchPratos(){
+            const response = await api.get(`/pratos?name=${search}`)
+            setPratos(response.data)
+        }
+        fetchPratos()
+    }, [search])
      return(
         <Container>
 
@@ -37,7 +49,7 @@ export function Header(){
                         <h2>food explorer</h2>
                     </div>
 
-                <Input icon={FiSearch} placeholder="Busque por pratos ou ingredientes"/>
+                <Input icon={FiSearch} placeholder="Busque por pratos ou ingredientes" onChange={(e) => setSearch(e.target.value)}/>
                 <Button icon={Menu} title="Pedido(0)" className="btn-pedido"/>
 
                     <div>

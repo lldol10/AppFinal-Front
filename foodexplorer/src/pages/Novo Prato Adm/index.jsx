@@ -16,10 +16,9 @@ export function NovoPrato(){
 
    const [name, setName] = useState("")
    const [description, setDescription] = useState("")
-   const select = document.querySelector("#categoria")
-   const indice = select.selectedIndex
-   const text = select.options[indice]
-   let category
+   const element = document.querySelector('#categoria')
+   
+
    const [price, setPrice] = useState("")
 
    const [tags, setTags] = useState([])
@@ -41,16 +40,17 @@ export function NovoPrato(){
  
 
    async function handleNewPrato(){
-      // await api.post("/prato", {
-      //    name,
-      //    description,
-      //    category,
-      //    price,
-      //    tags
-      // })
+      const category = element.value
+
+    await api.post("/prato", {
+       name,
+       description,
+       category,
+       price,
+       tags
+    })
       
-      console.log(text)
-    //  navigate("/")
+        navigate("/editarprato")
    }
 
     return(
@@ -60,7 +60,7 @@ export function NovoPrato(){
                 <Container>
                     <div className="content">
                         
-                     <ButtonText className="voltar" title="< voltar" />
+                     <ButtonText className="voltar" title="< voltar"  />
                      
                      <h1>Adicionar Prato</h1>
                      <div className="capsula">
@@ -76,9 +76,9 @@ export function NovoPrato(){
 
                         <div className="input-area">
                            <label htmlFor="categoria">Categoria</label>
-                           <select id="categoria" type="option" onChange={e => setCategory(e.select.value)}> 
-                              <option value="refeicao">Refeição</option>
-                              <option value="sobremessa">Sobremessa</option>
+                           <select id="categoria" type="option"> 
+                              <option value="Refeicao">Refeição</option>
+                              <option value="Sobremessa">Sobremessa</option>
                            </select>
                         </div>
                         </div>
@@ -117,7 +117,7 @@ export function NovoPrato(){
 
                         <div className="input-area">
                            <label htmlFor="prato">Descrição</label>
-                           <textarea id="prato" type="text" nChange={e => setDescription(e.target.value)} placeholder="Fale brevemente sobre o prato, seus ingredientes e composições"/>
+                           <textarea id="prato" type="text" onChange={e => setDescription(e.target.value)} placeholder="Fale brevemente sobre o prato, seus ingredientes e composições"/>
                         </div>
                     
                      

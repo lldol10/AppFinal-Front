@@ -10,7 +10,8 @@ export function MenuAdm(){
 
 
     function NovoPrato(){
-        window.location.href='/novoprato'
+        window.location.href = '/novoprato'
+      
     }
     const {signOut} = useAuth()
     return(

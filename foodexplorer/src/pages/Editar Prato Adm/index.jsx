@@ -18,7 +18,7 @@ export function EditarPrato(){
                 <Container>
                     <div className="content">
                         
-                     <ButtonText className="voltar" title="< voltar" />
+                     <ButtonText className="voltar" title="< voltar" onClick={window.location.href="/"} />
                      
                      <h1>Editar Prato</h1>
                      <div className="capsula">
