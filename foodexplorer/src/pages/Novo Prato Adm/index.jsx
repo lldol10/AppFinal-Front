@@ -41,7 +41,7 @@ export function NovoPrato(){
 
    async function handleNewPrato(){
       const category = element.value
-
+      alert('Prato inserido com sucesso')
     await api.post("/prato", {
        name,
        description,
@@ -50,7 +50,7 @@ export function NovoPrato(){
        tags
     })
       
-        navigate("/editarprato")
+        navigate("/")
    }
 
     return(

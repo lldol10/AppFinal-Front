@@ -1,25 +1,29 @@
 import { useState } from "react";
-
+import { api } from "../../services/api";
 import { Container } from "./styles";
 import {FiEdit} from 'react-icons/fi'
+import { useNavigate } from "react-router-dom";
 
 
-export function CardAdm(){
+export function CardAdm({name, description, price, ...rest}){
+
+    const navigate = useNavigate
 
     function editaPrato(){
-        window.location.href = '/novoprato'
+        window.location.href = '/editarprato'
     }
+
     
 
     return (
-        <Container>
+        <Container {...rest}>
             <img src="http://github.com/lldol10.png" alt="" />
             <div className="favorito">
-                <FiEdit onClick={editaPrato}/>
+                <FiEdit/>
             </div>
-            <h2>Salada Ravanello</h2>
-            <p>Massa fresca com amor e alho poro.</p>
-            <h1>R$ 49,99</h1>
+            <h2>{name}</h2>
+            <p>{description}</p>
+            <h1>{price}</h1>
 
         </Container>
     )

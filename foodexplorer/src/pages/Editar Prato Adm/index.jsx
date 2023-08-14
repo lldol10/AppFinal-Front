@@ -6,10 +6,53 @@ import {Rodape} from './../../components/Rodape'
 import {ButtonText} from './../../components/ButtonText'
 import { Input } from "../../components/Input";
 import { Ingrediente } from "../../components/Ingrediente";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { api } from "../../services/api";
+
 
 
 
 export function EditarPrato(){
+const [data, setData] = useState("")
+const [tags, setTags] = useState([])
+const [newTag, setNewTag] = useState([])
+
+const params = useParams()
+const navigate = useNavigate()
+
+function handleRemoveTag(deleted){
+   setTags(prevState => prevState.filter(tag => tag !== deleted))
+   
+}
+
+function handleAddTag(tagDeleted){
+   setTags(prevState => [...prevState, newTag])
+  setNewTag("")
+  
+}
+
+async function deletedPrato() {
+   const confirm = window.confirm("Deseja realmente excluir a nota?")
+
+   if(confirm){
+      await api.delete(`/prato/${params.id}`)
+      navigate('/')
+   }
+}
+
+useEffect(() => {
+   async function fetchPrato(){
+      const response = await api.get(`/prato/${params.id}`)
+      setData(response.data)
+      setTags(response.data.tags)
+      console.log(tags)
+      
+   }
+
+   fetchPrato()
+}, [])
+
    
     return(
         <>
@@ -18,7 +61,7 @@ export function EditarPrato(){
                 <Container>
                     <div className="content">
                         
-                     <ButtonText className="voltar" title="< voltar" onClick={window.location.href="/"} />
+                     <ButtonText className="voltar" title="< voltar" />
                      
                      <h1>Editar Prato</h1>
                      <div className="capsula">
@@ -38,7 +81,7 @@ export function EditarPrato(){
 
                         <div className="input-area aumenta">
                            <label htmlFor="prato">Nome</label>
-                           <Input id="prato" type="text" placeholder="Ex: Nome do prato"/>
+                           <Input id="prato" type="text" placeholder= {data.name}/>
                         </div>
 
                         <div className="input-area">
@@ -53,27 +96,46 @@ export function EditarPrato(){
                         <div className="capsula">
                         <div className="input-area aumenta">
                            <p>Ingredientes</p>
-                           <div className="ingredientes">
-                              <Ingrediente title='hoje tem em'  />
-                              <Ingrediente title='LUAN'/>
-                              <Ingrediente title='avera' isNew  />
-                           </div>
+                           {
+                               tags &&
+                               <div className="ingredientes">
+                               {
+                                  tags.map(tag => (
+                                     <Ingrediente 
+                                     key={String(tag.id)}
+                                     title={tag.name}
+                                     onClick={() => handleRemoveTag(tag)}
+                                    
+                                    />
+                                  ))
+                                 
+                               }
+
+                               <Ingrediente
+                                title='avera'
+                                 isNew
+                                 value={newTag}
+                                 onChange={e => setNewTag(e.target.value)}
+                                 onClick={handleAddTag}
+                                 />
+                            </div>
+                           }
                         </div>
 
                         <div className="input-area">
                            <label htmlFor="prato">Preço</label>
-                           <Input id="prato" type="text" placeholder="R$ 00,00"/>
+                           <Input id="prato" type="text" placeholder={data.price}/>
                         </div>
                         </div>
 
 
                         <div className="input-area">
                            <label htmlFor="prato">Descrição</label>
-                           <textarea id="prato" type="text" placeholder="Fale brevemente sobre o prato, seus ingredientes e composições"/>
+                           <textarea id="prato" type="text" placeholder={data.description}/>
                         </div>
                     
                         <div className="btn-padrao">
-                            <Button title="Excluir prato"/>              
+                            <Button title="Excluir prato" onClick={() => deletedPrato()}/>              
                             <Button title="Salvar Alterações"/>
                         </div>
                      

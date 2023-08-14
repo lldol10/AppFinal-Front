@@ -5,16 +5,19 @@ import {AdmRoutes} from "./adm.routes";
 import { AuthRoutes } from "./auth.routes";
 
 export function Routes(){
-    const {user} = useAuth()
+     const user = localStorage.getItem('@foodexplorer:isAdm')
+     
+    
+       
 
     if(user){
-        if(user.isAdm === 1){
+        if(user == 1){
             return (
                 <BrowserRouter>
                     <AdmRoutes/>
                 </BrowserRouter>
             )
-        }else{
+        }else if(user != 1){
             return (
                 <BrowserRouter>
                     <AppRoutes/>

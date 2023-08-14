@@ -8,14 +8,19 @@ import { useEffect, useState } from "react"
 
 
 export function Home(){
+    
     const [pratos, setPratos] = useState([])
+    
 
-    async function fatchPratos(){
-        const response = await api.get('/prato')
-        console.log(response)
-    }
+    useEffect(() => {
+        async function fetchPratos(){
+            const meal = await api.get('/prato')
+            setPratos(meal.data)
+            
+        }
 
-fatchPratos()
+        fetchPratos()
+    }, [])
    
     return (
         <Container>
@@ -23,18 +28,27 @@ fatchPratos()
             <Banner/>
             <Session title='Refeições'>
                 <div className="carrossel">
-                    {/* {
-                        pratos.map(prato => {
-                            <Card
-                             name={prato.name}
-                             price={prato.price}
-                             />
-                        })
-                    } */}
-                    <Card
-                             name={'arr0z'}
-                             price={'prato.price'}
-                             />
+                
+                    {
+                        
+                          pratos.map(prato =>  {
+                            if(prato.category == 'Refeicao'){
+                                return (
+                                    <Card
+                                    key={String(prato.id)}
+                                    name={prato.name}
+                                    price={prato.price}
+                                  />
+                                )
+
+                            }
+                            
+                          }                             
+                          )
+                      
+                        
+        
+                    }
                   
 
                 </div>
@@ -42,9 +56,26 @@ fatchPratos()
 
             <Session title='Pratos Principais'>
                 <div className="carrossel">
-                     <Card />
-                     <Card />
-                     <Card />
+                {
+                        
+                        pratos.map(prato =>  {
+                          if(prato.category == 'Sobremessa'){
+                              return (
+                                  <Card
+                                  key={String(prato.id)}
+                                  name={prato.name}
+                                  price={prato.price}
+                                />
+                              )
+
+                          }
+                          
+                        }                             
+                        )
+                    
+                      
+      
+                  }
                 </div>
             </Session>
 
