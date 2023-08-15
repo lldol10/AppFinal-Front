@@ -21,6 +21,14 @@ const [newTag, setNewTag] = useState([])
 const params = useParams()
 const navigate = useNavigate()
 
+const [name, setName] = useState("")
+const [description, setDescription] = useState("")
+const element = document.querySelector('#categoria')
+
+
+const [price, setPrice] = useState("")
+
+
 function handleRemoveTag(deleted){
    setTags(prevState => prevState.filter(tag => tag !== deleted))
    
@@ -30,6 +38,19 @@ function handleAddTag(tagDeleted){
    setTags(prevState => [...prevState, newTag])
   setNewTag("")
   
+}
+
+async function alterarPrato(){
+
+
+   const category = element.value
+   await api.put(`/prato/${params.id}`, {
+      name,
+      description,
+      category,
+      price,
+      tags
+   })
 }
 
 async function deletedPrato() {
@@ -81,14 +102,14 @@ useEffect(() => {
 
                         <div className="input-area aumenta">
                            <label htmlFor="prato">Nome</label>
-                           <Input id="prato" type="text" placeholder= {data.name}/>
+                           <Input id="prato" type="text" placeholder= {data.name} onChange={e => setName(e.target.value)}/>
                         </div>
 
                         <div className="input-area">
                            <label htmlFor="categoria">Categoria</label>
                            <select id="categoria" type="option" > 
-                              <option value="refeicao">Refeição</option>
-                              <option value="sobremessa">Sobremessa</option>
+                              <option value="Refeicao">Refeição</option>
+                              <option value="Sobremessa">Sobremessa</option>
                            </select>
                         </div>
                         </div>
@@ -124,19 +145,19 @@ useEffect(() => {
 
                         <div className="input-area">
                            <label htmlFor="prato">Preço</label>
-                           <Input id="prato" type="text" placeholder={data.price}/>
+                           <Input id="prato" type="text" placeholder={data.price} onChange={e => setPrice(e.target.value)}/>
                         </div>
                         </div>
 
 
                         <div className="input-area">
                            <label htmlFor="prato">Descrição</label>
-                           <textarea id="prato" type="text" placeholder={data.description}/>
+                           <textarea id="prato" type="text" placeholder={data.description} onChange={e => setDescription(e.target.value)}/>
                         </div>
                     
                         <div className="btn-padrao">
                             <Button title="Excluir prato" onClick={() => deletedPrato()}/>              
-                            <Button title="Salvar Alterações"/>
+                            <Button title="Salvar Alterações" onClick={() => alterarPrato()}/>
                         </div>
                      
                                    
