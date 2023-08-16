@@ -17,7 +17,7 @@ export function Routes(){
                     <AdmRoutes/>
                 </BrowserRouter>
             )
-        }else if(user != 1){
+        }else{
             return (
                 <BrowserRouter>
                     <AppRoutes/>

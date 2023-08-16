@@ -42,7 +42,7 @@ function handleAddTag(tagDeleted){
 
 async function alterarPrato(){
 
-
+   navigate('/')
    const category = element.value
    await api.put(`/prato/${params.id}`, {
       name,
@@ -51,6 +51,9 @@ async function alterarPrato(){
       price,
       tags
    })
+
+   
+   
 }
 
 async function deletedPrato() {

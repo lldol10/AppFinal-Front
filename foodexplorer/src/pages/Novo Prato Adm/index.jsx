@@ -50,7 +50,7 @@ export function NovoPrato(){
        tags
     })
       
-        navigate("/")
+        window.location.href = '/'
    }
 
     return(

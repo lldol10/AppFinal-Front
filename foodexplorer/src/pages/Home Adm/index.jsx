@@ -75,6 +75,7 @@ export function HomeAdm(){
             name={prato.name}
             description={prato.description}
             price={prato.price}
+            onClick={() => handleEdit(prato.id)}
           />
         )
 
