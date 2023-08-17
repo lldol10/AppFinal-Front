@@ -26,6 +26,10 @@ export function NovoPrato(){
 
    const navigate = useNavigate()
 
+   function handleBack(){
+      navigate('/')
+   }
+
    function handleAddTag(tagDeleted){
       setTags(prevState => [...prevState, newTag])
      setNewTag("")
@@ -49,6 +53,8 @@ export function NovoPrato(){
        price,
        tags
     })
+
+    
       
         window.location.href = '/'
    }
@@ -60,7 +66,7 @@ export function NovoPrato(){
                 <Container>
                     <div className="content">
                         
-                     <ButtonText className="voltar" title="< voltar"  />
+                     <ButtonText className="voltar" title="< voltar" onClick={handleBack}  />
                      
                      <h1>Adicionar Prato</h1>
                      <div className="capsula">

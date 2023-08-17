@@ -5,21 +5,16 @@ import {FiEdit} from 'react-icons/fi'
 import { useNavigate } from "react-router-dom";
 
 
-export function CardAdm({name, description, price, ...rest}){
+export function CardAdm({name, description, price,avatar, ...rest}){
 
-    const navigate = useNavigate
-
-    function editaPrato(){
-        window.location.href = '/editarprato'
-    }
 
     
 
     return (
         <Container {...rest}>
-            <img src="http://github.com/lldol10.png" alt="" />
+            <img src={avatar} alt="" />
             <div className="favorito">
-                <FiEdit/>
+                <FiEdit />
             </div>
             <h2>{name}</h2>
             <p>{description}</p>

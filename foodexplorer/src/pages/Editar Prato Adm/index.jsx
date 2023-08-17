@@ -14,15 +14,17 @@ import { api } from "../../services/api";
 
 
 export function EditarPrato(){
+   
 const [data, setData] = useState("")
 const [tags, setTags] = useState([])
 const [newTag, setNewTag] = useState([])
-
+const [avatar, setAvatar] = useState(null)
 const params = useParams()
 const navigate = useNavigate()
 
 const [name, setName] = useState("")
 const [description, setDescription] = useState("")
+
 const element = document.querySelector('#categoria')
 
 
@@ -34,10 +36,29 @@ function handleRemoveTag(deleted){
    
 }
 
+async function handleAvatar(event){
+   const file = event.target.files[0]
+   
+
+   const imagePreview = URL.createObjectURL(file)
+   setAvatar(imagePreview)
+
+   const fileUploadForm = new FormData()
+   fileUploadForm.append("avatar", avatar)
+
+   const response = await api.patch(`/pratos/avatar/${params.id}`)
+   
+   console.log(file)
+}
+
 function handleAddTag(tagDeleted){
    setTags(prevState => [...prevState, newTag])
   setNewTag("")
   
+}
+
+function handleBack(){
+   navigate('/')
 }
 
 async function alterarPrato(){
@@ -70,7 +91,7 @@ useEffect(() => {
       const response = await api.get(`/prato/${params.id}`)
       setData(response.data)
       setTags(response.data.tags)
-      console.log(tags)
+      console.log('toma'+response.data.imagem)
       
    }
 
@@ -85,7 +106,7 @@ useEffect(() => {
                 <Container>
                     <div className="content">
                         
-                     <ButtonText className="voltar" title="< voltar" />
+                     <ButtonText className="voltar" onClick={handleBack} title="< voltar" />
                      
                      <h1>Editar Prato</h1>
                      <div className="capsula">
@@ -100,7 +121,7 @@ useEffect(() => {
 
                         <div className="input-area aumenta">
                            <label htmlFor="imagem">Imagem do Prato</label>
-                           <Input id="imagem" type="file"  icon={FiDownload}/>
+                           <Input id="avatar" type="file"  icon={FiDownload} onChange={handleAvatar}/>
                         </div>
 
                         <div className="input-area aumenta">

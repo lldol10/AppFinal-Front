@@ -8,9 +8,15 @@ import Pedidos from '../../assets/Receipt.svg'
 import {Input} from '../Input'
 import {Button} from '../Button'
 import { useAuth } from '../../hooks/auth'
+import { useNavigate } from 'react-router-dom';
 
 export function HeaderAdm(){
     const {signOut} = useAuth()
+    const navigate = useNavigate()
+
+    function novoPrato(){
+        navigate('/novoprato')
+    }
     return(
         <Container>
 
@@ -39,7 +45,7 @@ export function HeaderAdm(){
                     </div>
 
                 <Input icon={FiSearch} placeholder="Busque por pratos ou ingredientes"/>
-                <Button icon={Menu} title="Novo Prato" className="btn-pedido" />
+                <Button icon={Menu} title="Novo Prato" className="btn-pedido" onClick={novoPrato} />
                 <img src={Logoff} alt=""  onClick={signOut}/>
 
  

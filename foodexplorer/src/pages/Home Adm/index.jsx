@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useNavigationType } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import {HeaderAdm} from "../../components/Header Adm"
 
 import { Banner } from "../../components/Banner"
@@ -18,10 +18,10 @@ export function HomeAdm(){
 
 
 
-    function handleEdit(id){
+     function handleEdit(id){
         
-        navigate(`/editarprato/${id}`)
-    }
+         navigate(`/editarprato/${id}`)
+     }
 
 
 
@@ -48,6 +48,7 @@ export function HomeAdm(){
                             if(prato.category == 'Refeicao'){
                                 return (
                                     <CardAdm
+                                    
                                     key={String(prato.id)}
                                     name={prato.name}
                                     description={prato.description}
