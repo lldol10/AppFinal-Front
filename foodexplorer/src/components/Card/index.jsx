@@ -8,7 +8,7 @@ import {FiHeart} from 'react-icons/fi'
 import {Button} from './../../components/Button'
 
 
-export function Card({name, price}){
+export function Card({name, price, imagem}){
     
     const [total, setTotal] = useState(0)
 
@@ -28,7 +28,7 @@ export function Card({name, price}){
 
     return (
         <Container >
-            <img src="http://github.com/lldol10.png" alt="" />
+            <img src={imagem} alt="" />
             <div className="favorito">
                 <FiHeart/>
             </div>

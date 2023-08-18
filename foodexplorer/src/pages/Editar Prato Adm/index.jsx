@@ -39,6 +39,7 @@ function handleRemoveTag(deleted){
 
 async function handleAvatar(event){
    const file = event.target.files[0]
+   console.log(file)
    setImagemFile(file)
    
 
@@ -47,11 +48,11 @@ async function handleAvatar(event){
     
       
     const fileUploadForm = new FormData()
-       fileUploadForm.append("avatar", imagemFile)
+       fileUploadForm.append("avatar", file)
        const response = await api.patch(`/prato/avatar/${params.id}`, fileUploadForm)
       console.log(imagemFile)
-      console.log(response.data.imagem)
-      api.defaults.baseURL
+      console.log(response.data)
+      
 }
 
 function handleAddTag(tagDeleted){
