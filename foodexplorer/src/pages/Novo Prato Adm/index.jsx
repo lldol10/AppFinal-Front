@@ -54,6 +54,8 @@ export function NovoPrato(){
        tags
     })
 
+    console.log(tags)
+
     
       
         window.location.href = '/'

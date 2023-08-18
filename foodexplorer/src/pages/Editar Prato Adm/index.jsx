@@ -33,10 +33,19 @@ const [price, setPrice] = useState("")
 
 
 function handleRemoveTag(deleted){
-   setTags(prevState => prevState.filter(tag => tag !== deleted))
+   console.log(deleted)
+   console.log(setTags)
+   setTags(prevState => prevState.filter(tag => tag != deleted))
+   console.log(setTags)
    
 }
 
+function handleAddTag( ){
+   setTags(prevState => [...prevState, newTag])
+  setNewTag("")
+  console.log(setTags)
+  
+}
 async function handleAvatar(event){
    const file = event.target.files[0]
    console.log(file)
@@ -55,19 +64,13 @@ async function handleAvatar(event){
       
 }
 
-function handleAddTag(tagDeleted){
-   setTags(prevState => [...prevState, newTag])
-  setNewTag("")
-  
-}
 
 function handleBack(){
    navigate('/')
 }
 
 async function alterarPrato(){
-
-   navigate('/')
+   
    const category = element.value
    await api.put(`/prato/${params.id}`, {
       name,
@@ -76,8 +79,7 @@ async function alterarPrato(){
       price,
       tags
    })
-
-   
+handleBack()
    
 }
 
@@ -95,6 +97,7 @@ useEffect(() => {
       const response = await api.get(`/prato/${params.id}`)
       setData(response.data)
       setTags(response.data.tags)
+      console.log(response)
      
       
    }
@@ -145,10 +148,11 @@ useEffect(() => {
                         <div className="capsula">
                         <div className="input-area aumenta">
                            <p>Ingredientes</p>
-                           {
-                               tags &&
+                           
+                               
                                <div className="ingredientes">
                                {
+                                 tags &&
                                   tags.map(tag => (
                                      <Ingrediente 
                                      key={String(tag.id)}
@@ -168,7 +172,7 @@ useEffect(() => {
                                  onClick={handleAddTag}
                                  />
                             </div>
-                           }
+                           
                         </div>
 
                         <div className="input-area">
