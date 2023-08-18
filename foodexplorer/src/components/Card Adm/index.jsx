@@ -5,14 +5,14 @@ import {FiEdit} from 'react-icons/fi'
 import { useNavigate } from "react-router-dom";
 
 
-export function CardAdm({name, description, price,avatar, ...rest}){
+export function CardAdm({name, description, price, imagem, ...rest}){
 
 
     
 
     return (
         <Container {...rest}>
-            <img src={avatar} alt="" />
+            <img src={imagem} alt="" />
             <div className="favorito">
                 <FiEdit />
             </div>

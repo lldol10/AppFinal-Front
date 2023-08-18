@@ -45,11 +45,15 @@ export function HomeAdm(){
                 <div className="carrossel">
                      {
                         pratos.map(prato =>  {
+
                             if(prato.category == 'Refeicao'){
+                                const toma = `${api.defaults.baseURL}/files/${prato.imagem}`
+                                console.log(toma)
                                 return (
                                     <CardAdm
                                     
                                     key={String(prato.id)}
+                                    imagem={toma}
                                     name={prato.name}
                                     description={prato.description}
                                     price={prato.price}

@@ -18,7 +18,8 @@ export function EditarPrato(){
 const [data, setData] = useState("")
 const [tags, setTags] = useState([])
 const [newTag, setNewTag] = useState([])
-const [avatar, setAvatar] = useState(null)
+const [imagem, setImagem] = useState(null)
+const [imagemFile, setImagemFile] = useState(null)
 const params = useParams()
 const navigate = useNavigate()
 
@@ -38,17 +39,19 @@ function handleRemoveTag(deleted){
 
 async function handleAvatar(event){
    const file = event.target.files[0]
+   setImagemFile(file)
    
 
    const imagePreview = URL.createObjectURL(file)
-   setAvatar(imagePreview)
-
-   const fileUploadForm = new FormData()
-   fileUploadForm.append("avatar", avatar)
-
-   const response = await api.patch(`/pratos/avatar/${params.id}`)
-   
-   console.log(file)
+   setImagem(imagePreview)
+    
+      
+    const fileUploadForm = new FormData()
+       fileUploadForm.append("avatar", imagemFile)
+       const response = await api.patch(`/prato/avatar/${params.id}`, fileUploadForm)
+      console.log(imagemFile)
+      console.log(response.data.imagem)
+      api.defaults.baseURL
 }
 
 function handleAddTag(tagDeleted){
@@ -91,7 +94,7 @@ useEffect(() => {
       const response = await api.get(`/prato/${params.id}`)
       setData(response.data)
       setTags(response.data.tags)
-      console.log('toma'+response.data.imagem)
+     
       
    }
 
