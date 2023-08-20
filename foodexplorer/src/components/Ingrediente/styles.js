@@ -4,7 +4,7 @@ export const Container = styled.div`
 display: flex;
 padding: 8px;
 font-size: 1.8rem;
-background-color: red;
+//background-color: red;
 
 
 
@@ -12,7 +12,7 @@ input{
    background-color: transparent;
    border: none;
    outline: none;
-   background-color: blue;
+  // background-color: blue;
    width: 82px;
    color: white;
    display: flex;

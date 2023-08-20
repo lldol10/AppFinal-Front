@@ -5,7 +5,7 @@ import { Container} from "./styles";
 
 export function Ingrediente({isNew,value, title, onClick, ...rest}){
     return(
-        <Container isNew ={isNew} >
+        <Container isNew ={isNew} {...rest} >
 
             <div className='agrupar'>
                 <input type="text" value={value}  readOnly={!isNew} placeholder={isNew ? 'Adicionar': title} {...rest} />

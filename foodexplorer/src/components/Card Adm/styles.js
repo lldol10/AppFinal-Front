@@ -18,6 +18,8 @@ export const Container = styled.div`
         border-radius: 50%;
         width: 9rem;
         height: 9rem;
+        cursor: pointer;
+        alt: 'double click';
         
     }
 

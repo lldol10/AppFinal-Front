@@ -16,6 +16,7 @@ export function NovoPrato(){
 
    const [name, setName] = useState("")
    const [description, setDescription] = useState("")
+
    const element = document.querySelector('#categoria')
    
 
@@ -36,6 +37,9 @@ export function NovoPrato(){
      
    }
 
+
+
+
    function handleRemoveTag(deleted){
       setTags(prevState => prevState.filter(tag => tag !== deleted))
      
@@ -54,7 +58,7 @@ export function NovoPrato(){
        tags
     })
 
-    console.log(tags)
+
 
     
       
@@ -74,7 +78,7 @@ export function NovoPrato(){
                      <div className="capsula">
                         <div className="input-area">
                         <label htmlFor="imagem">Imagem do Prato</label>
-                           <Input id="imagem" type="file"  icon={FiDownload}/>
+                           <Input id="imagem" type="file"  icon={FiDownload} />
                         </div>
 
                         <div className="input-area aumenta">

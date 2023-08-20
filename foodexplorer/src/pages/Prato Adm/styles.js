@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
 
-height: 100vh;
+height: 100%;
 width: 100vw;
 background-color: #1E1E1E;
 filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -29,6 +29,12 @@ margin: 0 auto;
         font-size: 2.4rem;
         font-family: 'Poppins';
         font-weight: 500;
+    }
+
+    img{
+        width: 23rem;
+        height: 23rem;
+        border-radius: 50%;
     }
 
    }

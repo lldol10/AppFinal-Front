@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: #1E1E1E;
     
@@ -20,6 +20,18 @@ export const Container = styled.div`
        }
     }
 
+    .carrossel{
+       
+        display: flex;
+        
+    }
+
+    .content{
+       
+        overflow-x: scroll;
+    }
+   
+
     >div{
         
         display: flex;
@@ -31,5 +43,6 @@ export const Container = styled.div`
         button{
             font-size: 2rem;
         }
+  
     }
 `

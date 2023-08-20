@@ -41,8 +41,8 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .voltar{
-    width: 29%;
-    text-align: left;
+    
+    text-align: center;
     font-weight: bold;
     font-size: 2.5rem;
 }
@@ -87,6 +87,10 @@ filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
             display: none;
         }
 
+    }
+
+    #prato{
+        color: white;
     }
 
     .ingredientes{

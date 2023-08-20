@@ -12,6 +12,7 @@ import { api } from "../../services/api";
 
 export function HomeAdm() {
   const [pratos, setPratos] = useState([]);
+  const [search, setSearch] = useState("");
 
   const navigate = useNavigate();
 
@@ -19,25 +20,39 @@ export function HomeAdm() {
     navigate(`/editarprato/${id}`);
   }
 
+  function handleDetails(id) {
+    navigate(`/pratoadm/${id}`);
+  }
+
   useEffect(() => {
     async function fetchPratos() {
-      const meal = await api.get("/prato");
-      setPratos(meal.data);
+      const response = await api.get("/prato");
+      setPratos(response.data);
     }
 
+    
     fetchPratos();
   }, []);
 
+  useEffect(() => {
+   async function fatchPratos(){
+    const response = await api.get(`/prato?name=${search}`)
+    setPratos(response.data)
+   }
+
+   fatchPratos()
+  }, [search]);
+
   return (
     <Container>
-      <HeaderAdm onclick={onclick} />
+      <HeaderAdm onChange={(e) => setSearch(e.target.value)} />
       <Banner />
       <Session title="Refeições">
         <div className="carrossel">
           {pratos.map((prato) => {
             if (prato.category == "Refeicao") {
-              const toma = `${api.defaults.baseURL}/files/${prato.imagem}`;
-              console.log(toma);
+
+    
               return (
                 <CardAdm
                   key={String(prato.id)}
@@ -46,6 +61,7 @@ export function HomeAdm() {
                   description={prato.description}
                   price={prato.price}
                   onClick={() => handleEdit(prato.id)}
+                  onDoubleClick={() => handleDetails(prato.id)}
                 />
               );
             }
@@ -53,7 +69,7 @@ export function HomeAdm() {
         </div>
       </Session>
 
-      <Session title="Pratos Principais">
+      <Session title="Sobremessas">
         <div className="carrossel">
           {pratos.map((prato) => {
             if (prato.category == "Sobremessa") {

@@ -31,19 +31,19 @@ const element = document.querySelector('#categoria')
 
 const [price, setPrice] = useState("")
 
-
 function handleRemoveTag(deleted){
-   console.log(deleted)
-   console.log(setTags)
-   setTags(prevState => prevState.filter(tag => tag != deleted))
-   console.log(setTags)
+
    
+   setTags(prevState => prevState.filter(tag => tag !== deleted))
+   
+  
 }
 
-function handleAddTag( ){
+function handleAddTag(tagDeleted){
+   console.log(tags)
    setTags(prevState => [...prevState, newTag])
   setNewTag("")
-  console.log(setTags)
+  
   
 }
 async function handleAvatar(event){
@@ -66,19 +66,21 @@ async function handleAvatar(event){
 
 
 function handleBack(){
-   navigate('/')
+   navigate("/")
 }
 
 async function alterarPrato(){
    
    const category = element.value
-   await api.put(`/prato/${params.id}`, {
+   
+   const data = {
       name,
       description,
       category,
       price,
       tags
-   })
+   }
+   await api.put(`/prato/${params.id}`, data)
 handleBack()
    
 }
@@ -96,10 +98,14 @@ useEffect(() => {
    async function fetchPrato(){
       const response = await api.get(`/prato/${params.id}`)
       setData(response.data)
-      setTags(response.data.tags)
-      console.log(response)
-     
-      
+      setTags(response.data.tags.map(tag => {
+         return (
+            
+            String(tag.id),
+            tag.name
+         )
+        
+      }))  
    }
 
    fetchPrato()
@@ -153,24 +159,28 @@ useEffect(() => {
                                <div className="ingredientes">
                                {
                                  tags &&
-                                  tags.map(tag => (
-                                     <Ingrediente 
-                                     key={String(tag.id)}
-                                     title={tag.name}
-                                     onClick={() => handleRemoveTag(tag)}
+                                 tags.map((tag) => (
+                                    <Ingrediente
+                                    key={String(tag.id)}
+                                    value={tag}
+                                    onClick={() => handleRemoveTag(tag)}
                                     
                                     />
-                                  ))
+                                 ))
+                              
                                  
-                               }
+                              }
+                            
 
-                               <Ingrediente
-                                title='avera'
-                                 isNew
-                                 value={newTag}
-                                 onChange={e => setNewTag(e.target.value)}
-                                 onClick={handleAddTag}
-                                 />
+                              <Ingrediente
+                              
+                              isNew
+                              value={newTag}
+                              placeholder="Nova Tag"
+                              onChange={e => setNewTag(e.target.value)}
+                              onClick={handleAddTag}  
+                              
+                              />
                             </div>
                            
                         </div>
@@ -189,7 +199,7 @@ useEffect(() => {
                     
                         <div className="btn-padrao">
                             <Button title="Excluir prato" onClick={() => deletedPrato()}/>              
-                            <Button title="Salvar Alterações" onClick={() => alterarPrato()}/>
+                            <Button title="Salvar Alterações" onClick={alterarPrato}/>
                         </div>
                      
                                    

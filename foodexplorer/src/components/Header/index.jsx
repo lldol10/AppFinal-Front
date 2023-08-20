@@ -11,7 +11,7 @@ import {Button} from '../Button'
 import {useAuth} from '../../hooks/auth'
 import { api } from '../../services/api';
 
-export function Header(){
+export function Header({onChange}){
 const [search, setSearch] = useState("")
 const [pratos, setPratos] = useState([])
     const {signOut} = useAuth()
@@ -49,7 +49,7 @@ const [pratos, setPratos] = useState([])
                         <h2>food explorer</h2>
                     </div>
 
-                <Input icon={FiSearch} placeholder="Busque por pratos ou ingredientes" onChange={(e) => setSearch(e.target.value)}/>
+                <Input icon={FiSearch} placeholder="Busque por pratos ou ingredientes" onChange={onChange}/>
                 <Button icon={Menu} title="Pedido(0)" className="btn-pedido"/>
 
                     <div>

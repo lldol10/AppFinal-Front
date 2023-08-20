@@ -6,10 +6,30 @@ import {Tag} from './../../components/Tag'
 import {Rodape} from './../../components/Rodape'
 import {ButtonText} from './../../components/ButtonText'
 import SaladaRavanello from './../../assets/image 2.png'
-
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import {Link} from 'react-router-dom'
+import { api } from "../../services/api";
 
 export function Prato(){
+
+    const params = useParams()
+    const [data, setData] = useState("")
+    const [tags, setTags] = useState([])
+
+    useEffect(() => {
+        async function fetchPrato(){
+            console.log(params.id)
+           const response = await api.get(`/prato/${params.id}`)
+           setData(response.data)
+           setTags(response.data.tags)
+           console.log(data)
+           
+        }
+     
+        fetchPrato()
+     }, [])
+
     return(
         <>
                 <Header/>
@@ -19,21 +39,30 @@ export function Prato(){
                         
                         <div className="dish">
                         <Link to="/"> ← Voltar</Link>
-                            <img src={SaladaRavanello} alt="" />
+                            <img src={`${api.defaults.baseURL}/files/${data.imagem}`} alt="" />
                         </div>
 
                         <div className="second-coll">
                             <div className="dish-info">
-                              <h2>Salada Ravanello</h2>
-                              <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</p>
+                              <h2>{data.name}</h2>
+                              <p>{data.description}</p>
                             </div>
 
                         <div className="tags">
-                            <Tag title="Saladinha"/>
-                            <Tag title="Tomatinho"/>
-                            <Tag title="Cebola"/>
-                            <Tag title="Cenoura"/>
-                            <Tag title="Alface"/>
+                            {
+                                tags.map((tag, index) => (
+                                   <Tag
+                                   key={String(index)}
+                                   title={tag.name}
+                                   
+                                   
+                                   />
+                                ))
+                            
+                                
+                                
+                            }
+                            
                         </div>
 
                         <div className="pedir">
