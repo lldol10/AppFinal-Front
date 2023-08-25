@@ -28,6 +28,7 @@ export function HomeAdm() {
     async function fetchPratos() {
       const response = await api.get("/prato");
       setPratos(response.data);
+      console.log(response)
     }
 
     
